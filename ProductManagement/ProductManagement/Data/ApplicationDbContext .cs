@@ -9,5 +9,17 @@ namespace ProductManagement.Data
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
         {
         }
+
+        public DbSet<Product> Products { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            base.OnModelCreating(builder);
+            // Additional configuration can be added here if needed
+
+            builder.Entity<Product>()
+                .Property(p => p.Price)
+                .HasColumnType("NUMERIC(18,2)");
+        }
     }
 }
