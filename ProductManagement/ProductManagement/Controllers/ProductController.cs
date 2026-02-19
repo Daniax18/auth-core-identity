@@ -37,14 +37,26 @@ namespace ProductManagement.Controllers
         [Authorize(Roles = "ADMIN")]
         public async Task<IActionResult> CreateProduct([FromBody] ProductDto productDto)
         {
+            // Vérifie si le modèle reçu respecte les validations (DataAnnotations dans ton DTO).
             if (!ModelState.IsValid) return BadRequest(ModelState);
+
+            // Création d’une nouvelle entité Product
             var product = new Models.Entities.Product
             {
                 Name = productDto.Name,
                 Price = productDto.Price
             };
+
+            // Ajoute l’objet product au DbContext (Entity Framework).
+            // À ce stade, rien n’est encore enregistré en base.
             _context.Products.Add(product);
+
+            // Sauvegarde réellement en base de données.
             await _context.SaveChangesAsync();
+
+            // Retourne HTTP 201 Created
+            // nameof(GetProduct) → référence la méthode GetProduct
+            // new { id = product.Id } → fournit les paramètres nécessaires pour construire l’URL de la ressource créée (ex: /api/product/5)
             return CreatedAtAction(nameof(GetProduct), new { id = product.Id }, product);
         }
     }
