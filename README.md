@@ -19,3 +19,7 @@ Les dépendances :
 - Microsoft.EntityFrameworkCore (8.0.0)
 - Microsoft.EntityFrameworkCore.Tools (8.0.0)
 - Npgsql.EntityFrameworkCore.PostgreSQL (8.0.0)
+
+dotnet ef migrations add InitialCreate
+dotnet ef database update
+dotnet run
