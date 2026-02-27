@@ -12,3 +12,10 @@ ASP.NET Core Identity gère :
 
 Pour l'autorisation :  
 C# utilise un système basé sur des attributs et des policies
+
+Les dépendances : 
+- Microsoft.AspNetCore.Authentication.JwtBearer (8.0.0)
+- Microsoft.AspNetCore.Identity.EntityFrameworkCore (8.0.0)
+- Microsoft.EntityFrameworkCore (8.0.0)
+- Microsoft.EntityFrameworkCore.Tools (8.0.0)
+- Npgsql.EntityFrameworkCore.PostgreSQL (8.0.0)
