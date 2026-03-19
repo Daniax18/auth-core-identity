@@ -6,7 +6,7 @@ ASP.NET Core Identity gère :
 -Login/Logout  
 -Hashage des mots de passe (avec des algorithmes robustes par défaut)  
 -Gestion des rôles  
--Two-factor authentication (2FA)  
+-Two-factor authentication (2FA)  // TO DO
 -Récupération de mot de passe  
 -Confirmation d'email# auth-core-identity  
 
